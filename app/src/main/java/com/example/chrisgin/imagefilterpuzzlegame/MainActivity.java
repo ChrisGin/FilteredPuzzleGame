@@ -1,19 +1,33 @@
 package com.example.chrisgin.imagefilterpuzzlegame;
 
-import android.support.v7.app.ActionBarActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends ActionBarActivity {
+    private Button mGalleryButton;
+    public final static String EXTRA_MESSAGE = "com.example.chrisgin.imagefilterpuzzlegame.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+       mGalleryButton = (Button) findViewById(R.id.galleryButton);
+       mGalleryButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, Gallery.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -23,7 +37,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item){
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -33,7 +47,12 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
+
+    public void changeMethod(View v){
+        startActivity(new Intent(MainActivity.this, Gallery.class));
+    }
+
+
 }

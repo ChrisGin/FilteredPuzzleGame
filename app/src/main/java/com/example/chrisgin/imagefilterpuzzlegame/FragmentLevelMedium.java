@@ -2,20 +2,25 @@ package com.example.chrisgin.imagefilterpuzzlegame;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by yaya on 4/20/15.
+ * Created by yaya on 4/27/15.
  */
-public class EasyLevelFragment extends Fragment{
+public class FragmentLevelMedium extends android.support.v4.app.Fragment {
 
+    public FragmentLevelMedium()
+    {
+
+        // Required empty public constructor
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_easy_level,container, false);
+        //connects the medium fragment layout to the class
+        return inflater.inflate(R.layout.level_medium_fragment,container, false);
 
     }
 }

@@ -1,6 +1,5 @@
 package com.example.chrisgin.imagefilterpuzzlegame;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,13 +24,13 @@ public class Gallery extends ActionBarActivity {
          Fragment galleryFragment = fragmentManager.findFragmentById(R.id.galleryContainer);
 
         if(galleryFragment == null) {
-            galleryFragment = new FragmentGalleryPicture();
+            //crate the fragment
+            galleryFragment = new FragmentLevelHard();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.galleryContainer, galleryFragment);
-            fragmentTransaction.addToBackStack("gallery_fragment");
+           // fragmentTransaction.addToBackStack("gallery_fragment");
             fragmentTransaction.commit();
         }
-
 
 
     }

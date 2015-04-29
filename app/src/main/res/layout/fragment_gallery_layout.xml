@@ -14,60 +14,63 @@
         android:background="#FFFFFF">
 
         <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
+            android:id="@+id/linearlayout1"
             android:layout_height="wrap_content">
 
 
             <ImageButton
-                android:layout_width="320dp"
-                android:layout_height="320dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton1"
                 android:src="@drawable/image1" />
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/filter_fragment_container">
-
-            </FrameLayout>
-
             <ImageButton
-                android:layout_width="320dp"
-                android:layout_height="320dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton2"
                 android:src="@drawable/image2"/>
 
             <ImageButton
-                android:layout_width="320dp"
-                android:layout_height="320dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton3"
                 android:src="@drawable/image3"/>
 
             <ImageButton
-                android:layout_width="320dp"
-                android:layout_height="320dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton4"
-                android:src="@drawable/image6"/>
+                android:src="@drawable/image4"/>
 
             <ImageButton
-                android:layout_width="320dp"
-                android:layout_height="320dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton5"
                 android:src="@drawable/image3"/>
 
+
         </LinearLayout>
 
+
     </HorizontalScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/filter_fragment_container">
+    </FrameLayout>
 
 </RelativeLayout>
 

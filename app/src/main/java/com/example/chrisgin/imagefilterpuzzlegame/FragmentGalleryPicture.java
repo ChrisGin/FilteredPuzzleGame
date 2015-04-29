@@ -17,7 +17,11 @@ import android.widget.Toast;
 public class FragmentGalleryPicture extends Fragment {
 
 
-    private ImageButton mPictureButton;
+    private ImageButton mPictureButton1;
+    private ImageButton mPictureButton2;
+    private ImageButton mPictureButton3;
+    private ImageButton mPictureButton4;
+
 
     public FragmentGalleryPicture()
     {
@@ -37,8 +41,8 @@ public class FragmentGalleryPicture extends Fragment {
 
         final FragmentManager fragmentManager = getChildFragmentManager();
 
-        mPictureButton = (ImageButton) view.findViewById(R.id.imageButton1);
-        mPictureButton.setOnClickListener(new View.OnClickListener(){
+        mPictureButton1 = (ImageButton) view.findViewById(R.id.imageButton1);
+        mPictureButton1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
@@ -48,6 +52,51 @@ public class FragmentGalleryPicture extends Fragment {
                 fragmentTransaction.commit();
                // Toast toast = Toast.makeText(getActivity().getApplicationContext(), "picuture button", Toast.LENGTH_LONG);
               //  toast.show();
+
+            }
+        });
+
+        mPictureButton2 = (ImageButton) view.findViewById(R.id.imageButton2);
+        mPictureButton2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.filter_fragment_container, filtersFra );
+                //fragmentTransaction.addToBackStack("gallery_fragment");
+                fragmentTransaction.commit();
+                // Toast toast = Toast.makeText(getActivity().getApplicationContext(), "picuture button", Toast.LENGTH_LONG);
+                //  toast.show();
+
+            }
+        });
+
+        mPictureButton3 = (ImageButton) view.findViewById(R.id.imageButton3);
+        mPictureButton3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.filter_fragment_container, filtersFra );
+                //fragmentTransaction.addToBackStack("gallery_fragment");
+                fragmentTransaction.commit();
+                // Toast toast = Toast.makeText(getActivity().getApplicationContext(), "picuture button", Toast.LENGTH_LONG);
+                //  toast.show();
+
+            }
+        });
+
+        mPictureButton4 = (ImageButton) view.findViewById(R.id.imageButton4);
+        mPictureButton4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.filter_fragment_container, filtersFra );
+                //fragmentTransaction.addToBackStack("gallery_fragment");
+                fragmentTransaction.commit();
+                // Toast toast = Toast.makeText(getActivity().getApplicationContext(), "picuture button", Toast.LENGTH_LONG);
+                //  toast.show();
 
             }
         });

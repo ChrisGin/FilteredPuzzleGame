@@ -4,6 +4,7 @@ package com.example.chrisgin.imagefilterpuzzlegame;
 import android.app.Fragment;
 import android.content.Intent;
 import android.hardware.Camera;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,14 +18,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 
 public class MainActivity extends ActionBarActivity {
-    private Button mGalleryButton;
-    private Button mCameraButton;
+    private ImageButton mGalleryButton;
+    private ImageButton mCameraButton;
     private int resultCode;
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
@@ -36,8 +38,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mGalleryButton = (Button) findViewById(R.id.galleryButton);
-        mCameraButton = (Button) findViewById(R.id.cameraButton);
+        mGalleryButton = (ImageButton) findViewById(R.id.galleryButton);
+        mCameraButton = (ImageButton) findViewById(R.id.cameraButton);
         mCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

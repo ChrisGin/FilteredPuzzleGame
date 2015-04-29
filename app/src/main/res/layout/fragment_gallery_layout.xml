@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#FF00CC"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/relativeLayout1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=" Gallery "
-        android:id="@+id/textView2"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView2"
         android:layout_marginTop="50dp"
         android:background="#FFFFFF">
 
@@ -30,40 +19,47 @@
 
 
             <ImageButton
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton1"
                 android:src="@drawable/image1" />
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/filter_fragment_container">
+
+            </FrameLayout>
+
             <ImageButton
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton2"
                 android:src="@drawable/image2"/>
 
             <ImageButton
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton3"
                 android:src="@drawable/image3"/>
 
             <ImageButton
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton4"
                 android:src="@drawable/image6"/>
 
             <ImageButton
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton5"
@@ -72,8 +68,6 @@
         </LinearLayout>
 
     </HorizontalScrollView>
-
-
 
 </RelativeLayout>
 

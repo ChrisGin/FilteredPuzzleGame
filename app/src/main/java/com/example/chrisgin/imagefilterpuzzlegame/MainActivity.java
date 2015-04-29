@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
        mGalleryButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, Gallery.class);
+                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void changeMethod(View v){
-        startActivity(new Intent(MainActivity.this, Gallery.class));
+        startActivity(new Intent(MainActivity.this, GalleryActivity.class));
     }
 
 

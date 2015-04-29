@@ -4,22 +4,34 @@
     android:background="#FFFFFF"
     android:layout_height="match_parent">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back to Main Menu"
-        android:id="@+id/backButton"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Gallery "
+        android:id="@+id/textView2"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="43dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <FrameLayout
-        android:layout_below="@id/backButton"
+        android:layout_below="@id/textView2"
         android:name="galleryFragmentName"
-        android:id="@+id/galleryContainer"
+        android:id="@+id/gallery_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         </FrameLayout>
+
+
+
+    <FrameLayout
+        android:layout_below="@id/textView2"
+        android:name="galleryFragmentName"
+        android:id="@+id/pic_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
 
     <!--
     <fragment

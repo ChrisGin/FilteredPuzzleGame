@@ -7,13 +7,20 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by yaya on 4/15/15.
  */
 
 
-public class Gallery extends ActionBarActivity {
+public class GalleryActivity extends ActionBarActivity {
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,14 +28,14 @@ public class Gallery extends ActionBarActivity {
 
       final FragmentManager fragmentManager = getSupportFragmentManager();//get an instance of the
        //activity fragment manager
-         Fragment galleryFragment = fragmentManager.findFragmentById(R.id.galleryContainer);
+         Fragment galleryFragment = fragmentManager.findFragmentById(R.id.gallery_container);
 
         if(galleryFragment == null) {
             //crate the fragment
-            galleryFragment = new FragmentLevelHard();
+            galleryFragment = new FragmentGalleryPicture();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.galleryContainer, galleryFragment);
-           // fragmentTransaction.addToBackStack("gallery_fragment");
+            fragmentTransaction.add(R.id.gallery_container, galleryFragment);
+           //fragmentTransaction.addToBackStack();
             fragmentTransaction.commit();
         }
 

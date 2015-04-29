@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import org.json.JSONArray;
 public class MainActivity extends ActionBarActivity {
     private Button mGalleryButton;
     private Button mCameraButton;
+    private int resultCode;
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     View view;
@@ -44,22 +46,16 @@ public class MainActivity extends ActionBarActivity {
             }
         });
         mGalleryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, Gallery.class);
+                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
                 startActivity(intent);
-
             }
         });
-
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    public void onActivityResult(int requestCode, int resultCode) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 ImageView imageView = (ImageView) view.findViewById(R.id.camera_image);
-                ;
                 imageView.setImageURI(null);
             } else if (resultCode == RESULT_CANCELED) {
                 // User cancelled the image capture
@@ -88,10 +84,10 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public void changeMethod(View v){
+        startActivity(new Intent(MainActivity.this, GalleryActivity.class));
 
-    public void changeMethod(View v) {
-        startActivity(new Intent(MainActivity.this, Gallery.class));
-    }
+        }
 
 
 }

@@ -9,8 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Filters"
-        android:id="@+id/textView"
+        android:text="This is the message"
+        android:id="@+id/text_send"
         android:layout_gravity="center_horizontal" />
 
 
@@ -29,7 +29,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/textView"
+        android:layout_below="@id/text_send"
         android:id="@+id/imageView"
         android:src="@drawable/image3"
         android:layout_gravity="center_horizontal" />

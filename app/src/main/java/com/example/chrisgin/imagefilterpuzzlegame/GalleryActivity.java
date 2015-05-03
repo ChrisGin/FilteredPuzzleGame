@@ -1,5 +1,6 @@
 package com.example.chrisgin.imagefilterpuzzlegame;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,7 +17,7 @@ import android.widget.ImageButton;
  */
 
 
-public class GalleryActivity extends ActionBarActivity {
+public class GalleryActivity extends ActionBarActivity  {
 
 
 

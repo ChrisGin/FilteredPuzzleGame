@@ -1,6 +1,7 @@
 package com.example.chrisgin.imagefilterpuzzlegame;
 
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.hardware.Camera;
@@ -24,7 +25,7 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity  {
     private ImageButton mGalleryButton;
     private ImageButton mCameraButton;
     private int resultCode;

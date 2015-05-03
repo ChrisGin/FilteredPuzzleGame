@@ -1,5 +1,6 @@
 package com.example.chrisgin.imagefilterpuzzlegame;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -41,18 +42,25 @@ public class FragmentGalleryPicture extends Fragment {
 
         final FragmentManager fragmentManager = getChildFragmentManager();
 
+
         mPictureButton1 = (ImageButton) view.findViewById(R.id.imageButton1);
         mPictureButton1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
+
+                //I created a Bundle object so we are able to pass information to our next fragment.
+                //So we can know what image to display
+                Bundle bundle = new Bundle();
+
+                bundle.putString("photoNum", "image1");//we are putting a string(nameKey, string);
+
+                Fragment filtersFra = new FragmentFilters();//it creates a new object of type FragmentFilters
+                filtersFra.setArguments(bundle);
+
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                fragmentTransaction.add(R.id.filter_fragment_container, filtersFra );
                 //fragmentTransaction.addToBackStack("gallery_fragment");
                 fragmentTransaction.commit();
-               // Toast toast = Toast.makeText(getActivity().getApplicationContext(), "picuture button", Toast.LENGTH_LONG);
-              //  toast.show();
-
             }
         });
 
@@ -60,8 +68,15 @@ public class FragmentGalleryPicture extends Fragment {
         mPictureButton2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //I created a Bundle object so we are able to pass information to our next fragment.
+                //So we can know what image to display
+                Bundle bundle = new Bundle();
+
+                bundle.putString("photoNum", "image2");//we are putting a string(nameKey, string);
                 Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                filtersFra.setArguments(bundle);
                 fragmentTransaction.add(R.id.filter_fragment_container, filtersFra );
                 //fragmentTransaction.addToBackStack("gallery_fragment");
                 fragmentTransaction.commit();
@@ -75,8 +90,15 @@ public class FragmentGalleryPicture extends Fragment {
         mPictureButton3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //I created a Bundle object so we are able to pass information to our next fragment.
+                //So we can know what image to display
+                Bundle bundle = new Bundle();
+
+                bundle.putString("photoNum", "image3");//we are putting a string(nameKey, string);
                 Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                filtersFra.setArguments(bundle);
                 fragmentTransaction.add(R.id.filter_fragment_container, filtersFra );
                 //fragmentTransaction.addToBackStack("gallery_fragment");
                 fragmentTransaction.commit();
@@ -87,12 +109,19 @@ public class FragmentGalleryPicture extends Fragment {
         });
 
         mPictureButton4 = (ImageButton) view.findViewById(R.id.imageButton4);
-        mPictureButton4.setOnClickListener(new View.OnClickListener(){
+        mPictureButton4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                //I created a Bundle object so we are able to pass information to our next fragment.
+                //So we can know what image to display
+                Bundle bundle = new Bundle();
+
+                bundle.putString("photoNum", "image4");//we are putting a string(nameKey, string);
                 Fragment filtersFra = new FragmentFilters();//it creates a new objectt of type FragmentFilters
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.filter_fragment_container, filtersFra );
+
+                filtersFra.setArguments(bundle);
+                fragmentTransaction.add(R.id.filter_fragment_container, filtersFra);
                 //fragmentTransaction.addToBackStack("gallery_fragment");
                 fragmentTransaction.commit();
                 // Toast toast = Toast.makeText(getActivity().getApplicationContext(), "picuture button", Toast.LENGTH_LONG);
@@ -103,4 +132,6 @@ public class FragmentGalleryPicture extends Fragment {
         return view;
 
     }
+
+
 }

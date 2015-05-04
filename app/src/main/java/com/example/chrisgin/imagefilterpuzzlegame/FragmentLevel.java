@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 /**
  * Created by yaya on 4/20/15.
  */
-public class FragmentLevelEasy extends Fragment{
+public class FragmentLevel extends Fragment{
 
 
-    public FragmentLevelEasy()
+    public FragmentLevel()
     {
 
         // Required empty public constructor
@@ -25,7 +25,7 @@ public class FragmentLevelEasy extends Fragment{
                              Bundle savedInstanceState) {
 
         //connects the medium fragment layout to the class
-        View view =  inflater.inflate(R.layout.level_easy_fragment, container, false);
+        View view =  inflater.inflate(R.layout.level_fragment, container, false);
         return view;
 
     }

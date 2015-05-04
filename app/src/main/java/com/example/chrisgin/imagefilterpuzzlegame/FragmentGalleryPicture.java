@@ -30,8 +30,6 @@ public class FragmentGalleryPicture extends Fragment {
         // Required empty public constructor
     }
 
-
-
     //linking the fragment with the layout
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

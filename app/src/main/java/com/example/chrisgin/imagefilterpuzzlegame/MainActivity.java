@@ -39,7 +39,7 @@ public class MainActivity extends ActionBarActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mGalleryButton = (ImageButton) findViewById(R.id.galleryButton);
+
         mCameraButton = (ImageButton) findViewById(R.id.cameraButton);
         mCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +48,8 @@ public class MainActivity extends ActionBarActivity  {
                 startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
             }
         });
+
+        mGalleryButton = (ImageButton) findViewById(R.id.galleryButton);
         mGalleryButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, GalleryActivity.class);

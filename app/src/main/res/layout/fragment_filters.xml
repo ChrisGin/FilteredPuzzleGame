@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="#FFAAFF"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,13 +14,6 @@
         android:layout_gravity="center_horizontal" />
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Game"
-        android:id="@+id/next_button"
-        android:layout_gravity="center_horizontal" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,8 +22,37 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/text_send"
-        android:id="@+id/imageView"
-        android:src="@drawable/image3"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:src="@drawable/image1"
+        android:id="@+id/imageView1"
+        android:layout_gravity="center_horizontal"
+        android:layout_toRightOf="@+id/camera_image"
+        android:layout_toEndOf="@+id/camera_image" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="19dp"
+        android:text="@string/dark" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="@string/gray"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/bright" />
+
+</RelativeLayout>

@@ -28,11 +28,9 @@ import org.json.JSONArray;
 public class MainActivity extends ActionBarActivity  {
     private ImageButton mGalleryButton;
     private ImageButton mCameraButton;
-    private int resultCode;
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     View view;
-    public final static String EXTRA_MESSAGE = "com.example.chrisgin.imagefilterpuzzlegame.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

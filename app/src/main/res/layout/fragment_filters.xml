@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#FFAAFF"
+    android:background="#00000000"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="This is the message"
+        android:text=""
         android:id="@+id/text_send"
         android:layout_gravity="center_horizontal" />
 
@@ -25,8 +25,10 @@
         android:src="@drawable/image1"
         android:id="@+id/imageView1"
         android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/text_send"
         android:layout_toRightOf="@+id/camera_image"
-        android:layout_toEndOf="@+id/camera_image" />
+        android:layout_toEndOf="@+id/camera_image"
+        android:layout_marginTop="96dp" />
 
     <Button
         android:id="@+id/button2"
@@ -42,7 +44,6 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
         android:text="@string/gray"
         android:layout_alignParentBottom="true" />
 

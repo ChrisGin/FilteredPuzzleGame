@@ -19,40 +19,40 @@
 
 
             <ImageButton
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton1"
                 android:src="@drawable/image1" />
 
             <ImageButton
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton2"
                 android:src="@drawable/image2"/>
 
             <ImageButton
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton3"
                 android:src="@drawable/image3"/>
 
             <ImageButton
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton4"
                 android:src="@drawable/image4"/>
 
             <ImageButton
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton5"
@@ -63,8 +63,8 @@
     </HorizontalScrollView>
 
     <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/filter_fragment_container">
     </FrameLayout>
 

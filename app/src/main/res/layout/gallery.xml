@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=" Gallery "
+        android:textColor="#ffffff"
         android:id="@+id/textView2"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="43dp"

@@ -33,7 +33,6 @@ public class FragmentFilters extends Fragment {
                     Color.YELLOW, Color.WHITE};
     public FragmentFilters()
     {
-
         // Required empty public constructor
     }
 
@@ -48,8 +47,44 @@ public class FragmentFilters extends Fragment {
 
         //this gets the arguments we created using the Bundle onject  imageView = (ImageView) getActivity().findViewById(R.id.imageView);
         String photos = getArguments().getString("photoNum");
-        Toast toast = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
-        toast.show();
+        imageView = (ImageView) view.findViewById(R.id.filter_image);
+
+        if(photos == "image1")
+        {
+          imageView.setImageResource(R.drawable.image1);
+            Toast x = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
+            x.show();
+        }
+        else if(photos == "image2")
+        {
+            imageView.setImageResource(R.drawable.image2);
+            Toast y = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
+            y.show();
+        }
+        else if(photos == "image3")
+        {
+            imageView.setImageResource(R.drawable.image3);
+            Toast y = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
+            y.show();
+
+        }
+        else if(photos == "image4")
+        {
+            imageView.setImageResource(R.drawable.image4);
+            Toast y = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
+            y.show();
+        }
+
+        else if(photos == "image5")
+        {
+            imageView.setImageResource(R.drawable.image3);
+            Toast y = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
+            y.show();
+
+        }
+
+        img = (ImageView)view.findViewById(R.id.filter_image);
+        BitmapDrawable  abmp = (BitmapDrawable)img.getDrawable();
 
        // Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.image1);
      //   Bitmap newbitmap = doColorFilter(bmp,135, 125, 165);
@@ -65,33 +100,7 @@ public class FragmentFilters extends Fragment {
                 imageView.setImageDrawable(bitmapOrg);
                 imageView.invalidate();
             }
-        });/*
-
-
-
-       // img.setImageResource(R.drawable.imge1);
-        //BitmapDrawable  abmp = (BitmapDrawable) img.getDrawable();
-      //  bmp = abmp.getBitmap();
-
-
-
-        // ImageView imgView = (ImageView)getActivity().findViewById(R.id.imageViewfilter);
-       // imgView.setImageResource( R.drawable.image2 );
-
-       // imgView.setImageResource( R.drawable.image2 );
-     /*   if(photos == "image1")
-        {
-            imageView.setImageResource(R.drawable.image1);
-            Toast toast = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
-            toast.show();
-        }
-        else if(photos == "image2")
-        {
-            imageView.setImageResource(R.drawable.image2);
-            Toast toast = Toast.makeText(getActivity().getApplicationContext(), photos, Toast.LENGTH_LONG);
-            toast.show();
-        }*/
-
+        });*/
 
 
         return view;
@@ -207,6 +216,20 @@ public class FragmentFilters extends Fragment {
         // return final image
         return bmOut;
     }
+
+    public static FragmentFilters getInstance(String image) {
+
+        FragmentFilters frag = new FragmentFilters();
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("photoNum", image);//we are putting a string(nameKey, string);
+
+        frag.setArguments(bundle);
+
+        return  frag;
+    }
+
 
 
 

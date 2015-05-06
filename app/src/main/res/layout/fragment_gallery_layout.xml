@@ -8,7 +8,7 @@
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="#00000000">
 
         <LinearLayout
@@ -19,44 +19,52 @@
 
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton1"
                 android:src="@drawable/image1" />
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton2"
                 android:src="@drawable/image2"/>
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton3"
                 android:src="@drawable/image3"/>
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton4"
                 android:src="@drawable/image4"/>
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:id="@+id/imageButton5"
-                android:src="@drawable/image3"/>
+                android:src="@drawable/image5"/>
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:id="@+id/imageButton6"
+                android:src="@drawable/image6"/>
         </LinearLayout>
 
 
@@ -65,7 +73,11 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/filter_fragment_container">
+        android:id="@+id/filter_fragment_container"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="88dp">
     </FrameLayout>
 
 </RelativeLayout>

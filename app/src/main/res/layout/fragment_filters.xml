@@ -20,39 +20,75 @@
         android:id="@+id/camera_image" />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/filter_image"
+        android:src="@drawable/image1"
         android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/text_send"
-        android:layout_toRightOf="@+id/camera_image"
-        android:layout_toEndOf="@+id/camera_image"
-        android:layout_marginTop="96dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/button2"
+
+
+    <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="19dp"
-        android:text="@string/dark" />
+        android:layout_below="@+id/filter_image"
+        android:background="#00000000">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gray"
-        android:layout_alignParentBottom="true" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:id="@+id/linearlayout1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/sepia_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lava_button"
+                android:layout_alignBottom="@+id/lava_button"
+                android:layout_centerHorizontal="true"
+                android:text="Sepia" />
+            <Button
+                android:id="@+id/negative_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Negative"
+                android:layout_alignParentBottom="true" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:text="@string/bright" />
+
+            <Button
+                android:id="@+id/contrast_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contrast"
+                android:layout_alignParentBottom="true" />
+
+            <Button
+                android:id="@+id/blackwhite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Black/White"
+                android:layout_alignParentBottom="true" />
+
+
+            <Button
+                android:id="@+id/lava_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/gray_button"
+                android:layout_alignBottom="@+id/gray_button"
+                android:layout_alignParentRight="true"
+                android:text="Lava" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/filter_image"
+                android:text="Hello"/>
+        </LinearLayout>
+
+
+    </HorizontalScrollView>
 
 </RelativeLayout>

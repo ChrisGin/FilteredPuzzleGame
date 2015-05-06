@@ -23,6 +23,7 @@ public class FragmentGalleryPicture extends Fragment {
     private ImageButton mPictureButton3;
     private ImageButton mPictureButton4;
     private ImageButton mPictureButton5;
+    private ImageButton mPictureButton6;
 
 
     public FragmentGalleryPicture()
@@ -126,6 +127,27 @@ public class FragmentGalleryPicture extends Fragment {
 
 
                 Fragment filtersFra = FragmentFilters.getInstance("image5");
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+                fragmentTransaction.replace(R.id.filter_fragment_container, filtersFra);
+                //fragmentTransaction.addToBackStack("gallery_fragment");
+                fragmentTransaction.commit();
+                // Toast toast = Toast.makeText(getActivity().getApplicationContext(), "picuture button", Toast.LENGTH_LONG);
+                //  toast.show();
+
+            }
+        });
+
+        mPictureButton6 = (ImageButton) view.findViewById(R.id.imageButton6);
+        mPictureButton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //I created a Bundle object so we are able to pass information to our next fragment.
+                //So we can know what image to display
+
+
+                Fragment filtersFra = FragmentFilters.getInstance("image6");
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 

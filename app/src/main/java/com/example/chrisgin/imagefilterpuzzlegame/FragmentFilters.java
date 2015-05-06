@@ -6,8 +6,11 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +21,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * Created by yaya on 4/24/15.
@@ -38,6 +46,8 @@ public class FragmentFilters extends Fragment {
     private Button mBlackWhiteButton;
     private Button mStartButton;
 
+    public ImageView currentView;
+
     private final int[] mColors =
             {Color.BLUE, Color.GREEN, Color.RED, Color.LTGRAY, Color.MAGENTA, Color.CYAN,
                     Color.YELLOW, Color.WHITE};
@@ -54,6 +64,9 @@ public class FragmentFilters extends Fragment {
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_filters, container, false);
+
+
+        final FragmentManager fragmentManager = getChildFragmentManager();
 
         //this gets the arguments we created using the Bundle onject  imageView = (ImageView) getActivity().findViewById(R.id.imageView);
         String photos = getArguments().getString("photoNum");
@@ -96,7 +109,7 @@ public class FragmentFilters extends Fragment {
         mContrastButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                contrast(v);
+                currentView = contrast(v);
 
             }
         });
@@ -105,7 +118,7 @@ public class FragmentFilters extends Fragment {
         mBlackWhiteButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                blackwhite(v);
+                currentView = blackwhite(v);
 
             }
         });
@@ -114,7 +127,7 @@ public class FragmentFilters extends Fragment {
         mNegativeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                negative(v);
+                currentView = negative(v);
 
             }
         });
@@ -123,7 +136,7 @@ public class FragmentFilters extends Fragment {
         mSepiaButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                sepia(v);
+                currentView = sepia(v);
 
             }
         });
@@ -133,7 +146,7 @@ public class FragmentFilters extends Fragment {
         mLavaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lava(v);
+                currentView = lava(v);
 
             }
         });
@@ -143,13 +156,47 @@ public class FragmentFilters extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Fragment frag = FragmentLevel.getInstancelevel("image1");
+
+                currentView.setDrawingCacheEnabled(true);
+                final Bitmap myImage = currentView.getDrawingCache();
+
+                OutputStream fOut = null;
+                Uri outputFileUri;
+                try {
+                    File root = new File(Environment.getExternalStorageDirectory()
+                            + File.separator + "folder_name" + File.separator);
+                    root.mkdirs();
+
+                    File sdImageMainDirectory = new File(root, "myPicName.jpg");
+                    outputFileUri = Uri.fromFile(sdImageMainDirectory);
+                    fOut = new FileOutputStream(sdImageMainDirectory);
+                } catch (Exception e) {
+
+                }
+
+                try {
+                    myImage.compress(Bitmap.CompressFormat.PNG, 100, fOut);
+                    fOut.flush();
+                    fOut.close();
+                } catch (Exception e) {
+                }
+
+                frag = new FragmentLevel();
+
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().add(R.id.filter_fragment_container, frag);
+                fragmentTransaction.addToBackStack("");
+                fragmentTransaction.commit();
+
+
+
             }
         });
 
         return view;
     }
 
-    public void contrast(View view){
+    public ImageView contrast(View view){
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
@@ -177,9 +224,10 @@ public class FragmentFilters extends Fragment {
             }
         }
         img.setImageBitmap(operation);
+        return img;
     }
 
-    public void blackwhite(View view){
+    public ImageView blackwhite(View view){
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
@@ -249,8 +297,9 @@ public class FragmentFilters extends Fragment {
             }
         }
         img.setImageBitmap(operation);
+        return img;
     }
-    public void negative(View view){
+    public ImageView negative(View view){
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
@@ -270,8 +319,9 @@ public class FragmentFilters extends Fragment {
             }
         }
         img.setImageBitmap(operation);
+        return img;
     }
-    public void gray(View view){
+    public ImageView gray(View view){
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
@@ -294,10 +344,11 @@ public class FragmentFilters extends Fragment {
             }
         }
         img.setImageBitmap(operation);
+        return img;
     }
 
 
-    public void sepia(View view){
+    public ImageView sepia(View view){
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(),bmp.getConfig());
 
@@ -335,10 +386,11 @@ public class FragmentFilters extends Fragment {
             }
         }
         img.setImageBitmap(operation);
+        return img;
     }
 
 
-    public void lava(View view){
+    public ImageView lava(View view){
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(),bmp.getConfig());
 
@@ -362,6 +414,7 @@ public class FragmentFilters extends Fragment {
         }
 
         img.setImageBitmap(operation);
+        return img;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

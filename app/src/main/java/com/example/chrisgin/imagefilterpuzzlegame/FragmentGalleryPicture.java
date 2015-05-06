@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
@@ -42,7 +43,6 @@ public class FragmentGalleryPicture extends Fragment {
 
         final FragmentManager fragmentManager = getChildFragmentManager();
 
-
         mPictureButton1 = (ImageButton) view.findViewById(R.id.imageButton1);
         mPictureButton1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -52,6 +52,7 @@ public class FragmentGalleryPicture extends Fragment {
                 //So we can know what image to display
 
                 Fragment filtersFra = FragmentFilters.getInstance("image1");
+
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                fragmentTransaction.replace(R.id.filter_fragment_container, filtersFra );

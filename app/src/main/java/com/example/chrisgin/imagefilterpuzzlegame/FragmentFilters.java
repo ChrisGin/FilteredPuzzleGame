@@ -36,6 +36,7 @@ public class FragmentFilters extends Fragment {
     private Button mLavaButton;
     private Button mSepiaButton;
     private Button mBlackWhiteButton;
+    private Button mStartButton;
 
     private final int[] mColors =
             {Color.BLUE, Color.GREEN, Color.RED, Color.LTGRAY, Color.MAGENTA, Color.CYAN,
@@ -137,6 +138,13 @@ public class FragmentFilters extends Fragment {
             }
         });
 
+        mStartButton = (Button) view.findViewById(R.id.start_button);
+        mStartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return view;
     }

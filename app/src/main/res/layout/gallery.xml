@@ -2,7 +2,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="@drawable/curtains"
+    android:id="@+id/relativelayout1"
     android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativelayout2">
+
+            <FrameLayout
+                android:name="galleryFragmentName"
+                android:id="@+id/gallery_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                </FrameLayout>
+
+            <FrameLayout
+                android:layout_below="@id/gallery_container"
+                android:name="galleryFragmentName"
+                android:id="@+id/pic_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </FrameLayout>
+        </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,27 +41,8 @@
         android:textColor="#ffffff"
         android:id="@+id/textView2"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="43dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
-    <FrameLayout
-        android:layout_below="@id/textView2"
-        android:name="galleryFragmentName"
-        android:id="@+id/gallery_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        </FrameLayout>
-
-
-
-    <FrameLayout
-        android:layout_below="@id/textView2"
-        android:name="galleryFragmentName"
-        android:id="@+id/pic_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
 
     <!--
     <fragment

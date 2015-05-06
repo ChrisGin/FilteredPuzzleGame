@@ -33,8 +33,10 @@
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_below="@+id/filter_image"
-        android:background="#00000000">
+        android:background="#00000000"
+        android:id="@+id/horizontalScrollView">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -43,39 +45,54 @@
             android:layout_height="wrap_content">
             <Button
                 android:id="@+id/sepia_button"
+                android:textAllCaps="false"
+                android:background="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lava_button"
                 android:layout_alignBottom="@+id/lava_button"
                 android:layout_centerHorizontal="true"
+                android:layout_marginRight="4dp"
                 android:text="Sepia" />
             <Button
                 android:id="@+id/negative_button"
+                android:textAllCaps="false"
+                android:background="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Negative"
+                android:layout_marginRight="4dp"
                 android:layout_alignParentBottom="true" />
 
 
             <Button
                 android:id="@+id/contrast_button"
+                android:background="#FFFFFF"
+                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Contrast"
+                android:layout_marginRight="4dp"
                 android:layout_alignParentBottom="true" />
 
             <Button
                 android:id="@+id/blackwhite_button"
+                android:background="#FFFFFF"
+                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Black/White"
+                android:layout_marginRight="4dp"
                 android:layout_alignParentBottom="true" />
 
 
             <Button
                 android:id="@+id/lava_button"
+                android:background="#FFFFFF"
+                android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_alignBaseline="@+id/gray_button"
                 android:layout_alignBottom="@+id/gray_button"
                 android:layout_alignParentRight="true"
@@ -90,5 +107,15 @@
 
 
     </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/start_button"
+        android:background="#009900"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:layout_below="@+id/horizontalScrollView"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

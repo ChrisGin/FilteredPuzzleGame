@@ -45,8 +45,11 @@ public class FragmentFilters extends Fragment {
     private Button mSepiaButton;
     private Button mBlackWhiteButton;
     private Button mStartButton;
+    private Bitmap myImage;
 
     public ImageView currentView;
+    public File root;
+    public String mFilePath;
 
     private final int[] mColors =
             {Color.BLUE, Color.GREEN, Color.RED, Color.LTGRAY, Color.MAGENTA, Color.CYAN,
@@ -156,21 +159,24 @@ public class FragmentFilters extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Fragment frag = FragmentLevel.getInstancelevel("image1");
+              Fragment frag = FragmentLevel.getInstancelevel("image1");
 
                 currentView.setDrawingCacheEnabled(true);
-                final Bitmap myImage = currentView.getDrawingCache();
+                myImage = currentView.getDrawingCache();
 
                 OutputStream fOut = null;
                 Uri outputFileUri;
                 try {
-                    File root = new File(Environment.getExternalStorageDirectory()
-                            + File.separator + "folder_name" + File.separator);
+                    root = new File(Environment.getExternalStorageDirectory()
+                            + File.separator + "image" + File.separator);
                     root.mkdirs();
 
                     File sdImageMainDirectory = new File(root, "myPicName.jpg");
                     outputFileUri = Uri.fromFile(sdImageMainDirectory);
                     fOut = new FileOutputStream(sdImageMainDirectory);
+                    mFilePath =  Environment.getExternalStorageDirectory() + File.separator + "image" + File.separator;
+
+
                 } catch (Exception e) {
 
                 }
@@ -270,6 +276,7 @@ public class FragmentFilters extends Fragment {
                     g = 150;
                     b = 150;
                 }
+
                 else if(lumi < 175){
                     r = 175;
                     g = 175;
@@ -467,6 +474,11 @@ public class FragmentFilters extends Fragment {
         return  frag;
     }
 
+    public Bitmap getMyImage(){
+
+        return myImage;
+
+    }
 
 
 

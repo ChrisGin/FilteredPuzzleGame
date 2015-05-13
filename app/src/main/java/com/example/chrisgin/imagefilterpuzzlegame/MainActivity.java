@@ -1,57 +1,55 @@
 package com.example.chrisgin.imagefilterpuzzlegame;
 
 
-import android.app.Activity;
-import android.app.Fragment;
+//imports all the library we need
 import android.content.Intent;
-import android.hardware.Camera;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import org.json.JSONArray;
+
+/**
+ * Created by yaya on 4/24/15.
+ * Name of Class: MainActivity
+ * Description: This class inherits from ActionBarActivity. This class displays two buttons one
+ *              for the camera and one for the gallery.
+ */
 
 public class MainActivity extends ActionBarActivity  {
-    private ImageButton mGalleryButton;
-    private ImageButton mCameraButton;
 
-    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    View view;
+    private ImageButton mGalleryButton;//creates a variable for the gallery button
+    private ImageButton mCameraButton;// creates a variable for the camera button
+
+    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;//variable that is sent to the camera activity
+    View view;// creates a view for the images
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //linkes the class with its layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        mCameraButton = (ImageButton) findViewById(R.id.cameraButton);
+
+        mCameraButton = (ImageButton) findViewById(R.id.cameraButton);//type casts the button as an image button and connects it to the camera button in the xml
         mCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+            public void onClick(View v) {//waits for the button to be clicked
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//if clicked creates a new intent for image capturing
+                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);//launches the camera
             }
         });
 
-        mGalleryButton = (ImageButton) findViewById(R.id.galleryButton);
+        mGalleryButton = (ImageButton) findViewById(R.id.galleryButton);//typecasts the button as an image button and connects it to the gallery button in the xml
         mGalleryButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {//waits for that button to be clicked.
+                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);//creates an intent that takes you from MainActivity to the Gallery Activity.
+                startActivity(intent);//launches that intent.
             }
         });
     }
@@ -88,6 +86,7 @@ public class MainActivity extends ActionBarActivity  {
         return super.onOptionsItemSelected(item);
     }
     public void changeMethod(View v){
+        //if the gallery button is selected the GalleryActivity class is displayed
         startActivity(new Intent(MainActivity.this, GalleryActivity.class));
 
         }

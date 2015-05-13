@@ -17,6 +17,7 @@
             android:id="@+id/linearlayout1"
             android:layout_height="wrap_content">
 
+            <!--  Image button 1 -->
 
             <ImageButton
                 android:layout_width="70dp"
@@ -26,6 +27,7 @@
                 android:id="@+id/imageButton1"
                 android:src="@drawable/image1" />
 
+            <!--  Image button 2 -->
             <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -34,6 +36,7 @@
                 android:id="@+id/imageButton2"
                 android:src="@drawable/image2"/>
 
+            <!--  Image button 3 -->
             <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -42,6 +45,7 @@
                 android:id="@+id/imageButton3"
                 android:src="@drawable/image3"/>
 
+            <!--  Image button 4 -->
             <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -50,6 +54,8 @@
                 android:id="@+id/imageButton4"
                 android:src="@drawable/image4"/>
 
+
+            <!--  Image button 5 -->
             <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -58,6 +64,7 @@
                 android:id="@+id/imageButton5"
                 android:src="@drawable/image5"/>
 
+            <!--  Image button 6 -->
             <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -70,6 +77,8 @@
 
     </HorizontalScrollView>
 
+
+    <!--  Fragment filter is displayed here -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

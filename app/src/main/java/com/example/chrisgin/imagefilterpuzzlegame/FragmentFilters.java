@@ -29,15 +29,17 @@ import java.io.OutputStream;
 
 /**
  * Created by yaya on 4/24/15.
+ * Name of Class: FragmentFilters
+ * Description: This class sets the image with filters and saves it to a directory
  */
 public class FragmentFilters extends Fragment {
+
 
     private ImageView img;
     private ImageView imageView;
     private Bitmap bmp;
-    private Button button1;
     private Bitmap operation;
-    Drawable bitmapOrg;
+
 
     private Button mContrastButton;
     private Button mNegativeButton;
@@ -51,9 +53,6 @@ public class FragmentFilters extends Fragment {
     public File root;
     public String mFilePath;
 
-    private final int[] mColors =
-            {Color.BLUE, Color.GREEN, Color.RED, Color.LTGRAY, Color.MAGENTA, Color.CYAN,
-                    Color.YELLOW, Color.WHITE};
     public FragmentFilters()
     {
         // Required empty public constructor
@@ -75,31 +74,38 @@ public class FragmentFilters extends Fragment {
         String photos = getArguments().getString("photoNum");
         imageView = (ImageView) view.findViewById(R.id.filter_image);
 
+        //this checks what image was clicked by getting the string that was send
         if(photos == "image1") {
+            //image1 is displayed if the string with its name was send
             imageView.setImageResource(R.drawable.image1);
         }
         else if(photos == "image2")
         {
+            //image2 is displayed if the string with its name was send
             imageView.setImageResource(R.drawable.image2);
 
         }
         else if(photos == "image3")
         {
+            //image3 is displayed if the string with its name was send
             imageView.setImageResource(R.drawable.image3);
 
         }
         else if(photos == "image4")
         {
+            //image4 is displayed if the string with its name was send
             imageView.setImageResource(R.drawable.image4);
         }
 
         else if(photos == "image5")
         {
+            //image5 is displayed if the string with its name was send
             imageView.setImageResource(R.drawable.image5);
 
         }
         else if(photos == "image6")
         {
+            //image6 is displayed if the string with its name was send
             imageView.setImageResource(R.drawable.image6);
 
         }
@@ -108,6 +114,9 @@ public class FragmentFilters extends Fragment {
         BitmapDrawable  abmp = (BitmapDrawable)img.getDrawable();
         bmp = abmp.getBitmap();
 
+
+        //Sets an OnClickListener for the contrast filter button, when the button is selected the above code
+        //will run
         mContrastButton = (Button) view.findViewById(R.id.contrast_button);
         mContrastButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -117,6 +126,8 @@ public class FragmentFilters extends Fragment {
             }
         });
 
+        //Sets an OnClickListener for the black and white filter button, when the button is selected the above code
+        //will run nd call the black and white filter
         mBlackWhiteButton = (Button) view.findViewById(R.id.blackwhite_button);
         mBlackWhiteButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -126,6 +137,8 @@ public class FragmentFilters extends Fragment {
             }
         });
 
+        //Sets an OnClickListener for the negative filter button, when the button is selected the above code
+        //will run nd call the negative filter
         mNegativeButton = (Button) view.findViewById(R.id.negative_button);
         mNegativeButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -135,6 +148,8 @@ public class FragmentFilters extends Fragment {
             }
         });
 
+        //Sets an OnClickListener for the sepia filter button, when the button is selected the above code
+        //will run and call the sepia filter
         mSepiaButton = (Button) view.findViewById(R.id.sepia_button);
         mSepiaButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -144,7 +159,8 @@ public class FragmentFilters extends Fragment {
             }
         });
 
-
+        //Sets an OnClickListener for the lava filter button, when the button is selected the above code
+        //will run nd call the lava filter
         mLavaButton = (Button) view.findViewById(R.id.lava_button);
         mLavaButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +170,8 @@ public class FragmentFilters extends Fragment {
             }
         });
 
+        //Sets an OnClickListener for the start button, when the button is selected the above code
+        //will run
         mStartButton = (Button) view.findViewById(R.id.start_button);
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,9 +185,12 @@ public class FragmentFilters extends Fragment {
                 OutputStream fOut = null;
                 Uri outputFileUri;
                 try {
+                    //this creates a new directory to save the filter image in it
                     root = new File(Environment.getExternalStorageDirectory()
                             + File.separator + "image" + File.separator);
-                    root.mkdirs();
+                    root.mkdirs();//creates the directory using the root file path
+
+
 
                     File sdImageMainDirectory = new File(root, "myPicName.jpg");
                     outputFileUri = Uri.fromFile(sdImageMainDirectory);
@@ -182,14 +203,15 @@ public class FragmentFilters extends Fragment {
                 }
 
                 try {
+                    //compress the image in the directory
                     myImage.compress(Bitmap.CompressFormat.PNG, 100, fOut);
                     fOut.flush();
                     fOut.close();
                 } catch (Exception e) {
                 }
 
+                //starts the next fragment
                 frag = new FragmentLevel();
-
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().add(R.id.filter_fragment_container, frag);
                 fragmentTransaction.addToBackStack("");
                 fragmentTransaction.commit();
@@ -203,43 +225,59 @@ public class FragmentFilters extends Fragment {
     }
 
     public ImageView contrast(View view){
+
+        //gets the width and height of the bitmap created from the view
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
+        //this is the equation for the contrast filter
         double contrast = Math.pow((100.0 + 70.0) / 100, 2);
+
+
         for(int i=0; i<bmp.getWidth(); i++){
             for(int j=0; j<bmp.getHeight(); j++){
+
+                //gets the pixel values and extracts the red, green, and blue
                 int p = bmp.getPixel(i, j);
                 int r = Color.red(p);
                 int g = Color.green(p);
                 int b = Color.blue(p);
 
+                //changes the red value of the pixel with the contrast equation
                 r = (int)(((((r/ 255.0) - 0.5) * contrast) + 0.5) * 255.0);
                 if(r < 0) { r = 0; }
                 else if(r > 255) { r = 255; }
 
+                //changes the red value of the pixel with the contrast equation
                 g = (int)(((((g / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
                 if(g < 0) { g = 0; }
                 else if(g > 255) { g = 255; }
 
+                //changes the red value of the pixel with the contrast equation
                 b = (int)(((((b / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
                 if(b < 0) { b = 0; }
                 else if(b > 255) { b = 255; }
 
+                //sets the new pixel values of red, green, blue
                 operation.setPixel(i, j, Color.argb(Color.alpha(p), r, g, b));
             }
         }
+        //creates the image bitmap
         img.setImageBitmap(operation);
         return img;
     }
 
     public ImageView blackwhite(View view){
+
+        //gets the width and height of the bitmap created from the view
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
         double factor = (259 * (64 + 255 )) / (255 * (259 - 64));
         for(int i=0; i<bmp.getWidth(); i++){
             for(int j=0; j<bmp.getHeight(); j++){
+
+                //gets the pixel values and extracts the red, green, and blue
                 int p = bmp.getPixel(i, j);
                 int r = Color.red(p);
                 int g = Color.green(p);
@@ -307,6 +345,8 @@ public class FragmentFilters extends Fragment {
         return img;
     }
     public ImageView negative(View view){
+
+        //gets the width and height of the bitmap created from the view
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
@@ -325,10 +365,14 @@ public class FragmentFilters extends Fragment {
                 operation.setPixel(i, j, Color.argb(Color.alpha(p), r, g, b));
             }
         }
+
+
         img.setImageBitmap(operation);
         return img;
     }
     public ImageView gray(View view){
+
+        //gets the width and height of the bitmap created from the view
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(), bmp.getConfig());
 
@@ -338,6 +382,8 @@ public class FragmentFilters extends Fragment {
 
         for(int i=0; i<bmp.getWidth(); i++){
             for(int j=0; j<bmp.getHeight(); j++){
+
+                //gets the pixel values and extracts the red, green, and blue
                 int p = bmp.getPixel(i, j);
                 int r = Color.red(p);
                 int g = Color.green(p);
@@ -347,6 +393,7 @@ public class FragmentFilters extends Fragment {
                 g = (int) green * g;
                 b = (int) blue * b;
 
+                //sets the pixel values calculated for each pixel
                 operation.setPixel(i, j, Color.argb(Color.alpha(p), r, g, b));
             }
         }
@@ -356,6 +403,8 @@ public class FragmentFilters extends Fragment {
 
 
     public ImageView sepia(View view){
+
+        //gets the width and height of the bitmap created from the view
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(),bmp.getConfig());
 
@@ -366,6 +415,8 @@ public class FragmentFilters extends Fragment {
         for(int i=0; i<bmp.getWidth(); i++){
             for(int j=0; j<bmp.getHeight(); j++){
                 int p = bmp.getPixel(i, j);
+
+                //gets the pixel values and extracts the red, green, and blue
                 int r = Color.red(p);
                 int g = Color.green(p);
                 int b = Color.blue(p);
@@ -392,18 +443,24 @@ public class FragmentFilters extends Fragment {
                 operation.setPixel(i, j, Color.argb(alpha, r, g, b));
             }
         }
+
+        //sets the img to a bitmap object
         img.setImageBitmap(operation);
         return img;
     }
 
 
     public ImageView lava(View view){
+
+        //gets the width and height of the bitmap created from the view
         operation= Bitmap.createBitmap(bmp.getWidth(),
                 bmp.getHeight(),bmp.getConfig());
 
 
         for(int i=0; i<bmp.getWidth(); i++){
             for(int j=0; j<bmp.getHeight(); j++){
+
+                //gets the pixel values and extracts the red, green, and blue
                 int p = bmp.getPixel(i, j);
                 int r = Color.red(p);
                 int g = Color.green(p);

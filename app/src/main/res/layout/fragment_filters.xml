@@ -5,6 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    <!--  Text View -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,12 +14,14 @@
         android:id="@+id/text_send"
         android:layout_gravity="center_horizontal" />
 
+    <!--  Image Camera image view -->
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/camera_image" />
 
+    <!--  Image Camera image view -->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,6 +33,7 @@
 
 
 
+    <!--  the scroll for the gallery images -->
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,6 +47,8 @@
             android:layout_width="wrap_content"
             android:id="@+id/linearlayout1"
             android:layout_height="wrap_content">
+
+            <!--  filter buttons -->
             <Button
                 android:id="@+id/sepia_button"
                 android:textAllCaps="false"

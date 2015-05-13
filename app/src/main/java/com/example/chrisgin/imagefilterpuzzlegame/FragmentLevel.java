@@ -24,6 +24,8 @@ import java.util.ArrayList;
 
 /**
  * Created by yaya on 4/20/15.
+ * Name of Class: MainActivity
+ * Description: This class inherits from a Fragment. This class displays the game
  */
 public class FragmentLevel extends Fragment{
 
@@ -31,18 +33,9 @@ public class FragmentLevel extends Fragment{
     File[] listFile;
 
     public String images_path;
-    public int rows = 3;
-
-    public int cols = 3;
-    public int chunks = rows * cols;
     public int chunkWidth;
     public int chunkHeight;
-    public int count;
 
-    //text view for the number of moves left
-    TextView numberMoves;
-
-    //temporary button for swapping images
     int tempPlace;
 
     //default varibles at the begining of the game
@@ -50,22 +43,13 @@ public class FragmentLevel extends Fragment{
     int imageswap = -1;
     Bitmap[] bmp = new Bitmap[9];
 
-    Bitmap bitmap;
-
-    //this is the array that will hold the pictures after cutting them into smaller images
-    Bitmap[] bitmaps = new Bitmap[9];
-
     //array of randomized tiles for the puzzle
   	int[] mixedImages = new int[]{4,3,7,6,1,5,2,0,8};
     	//answer key for solved puzzled
    	int[] answerKey = new int[]{0,1,2,3,4,5,6,7,8};
 
-    //Number of tries
-    int numberOfTries = 15;
-    	//checks if the user completed the puzzle if count
-    	//victory gets to nine
-    	int countVictory = 0;
 
+	int checksArrayForWin = 0;
 //Image button are created for the image that is slided
     	ImageButton
 					icon0,
@@ -125,9 +109,11 @@ public class FragmentLevel extends Fragment{
 		myImage.setImageBitmap(myBitmap);
 		setImageCrop();
 
-		icon0.setOnClickListener(new View.OnClickListener(){
+		//Sets an OnClickListener for the icon0, when the image is selected the below code
+		//will run and will call the slideImage method
+		icon0.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v){
+			public void onClick(View v) {
 				//Toast toast = Toast.makeText(getActivity().getApplicationContext(),"image1", Toast.LENGTH_LONG);
 				//toast.show();
 				slideImage(v);
@@ -135,6 +121,8 @@ public class FragmentLevel extends Fragment{
 			}
 		});
 
+		//Sets an OnClickListener for the icon0, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon1.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -144,6 +132,9 @@ public class FragmentLevel extends Fragment{
 
 			}
 		});
+
+		//Sets an OnClickListener for the icon2, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon2.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -152,6 +143,9 @@ public class FragmentLevel extends Fragment{
 			}
 		});
 
+
+		//Sets an OnClickListener for the icon3, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon3.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -161,6 +155,8 @@ public class FragmentLevel extends Fragment{
 			}
 		});
 
+		//Sets an OnClickListener for the icon4, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon4.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -169,6 +165,8 @@ public class FragmentLevel extends Fragment{
 			}
 		});
 
+		//Sets an OnClickListener for the icon5, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon5.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -177,6 +175,8 @@ public class FragmentLevel extends Fragment{
 			}
 		});
 
+		//Sets an OnClickListener for the icon6, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon6.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -185,6 +185,8 @@ public class FragmentLevel extends Fragment{
 			}
 		});
 
+		//Sets an OnClickListener for the icon7, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon7.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -194,12 +196,13 @@ public class FragmentLevel extends Fragment{
 			}
 		});
 
+		//Sets an OnClickListener for the icon8, when the image is selected the below code
+		//will run and will call the slideImage method
 		icon8.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
 
 				slideImage(v);
-
 			}
 		});
 
@@ -214,6 +217,7 @@ public class FragmentLevel extends Fragment{
         //gets the image file from the directory
         File file = new File(android.os.Environment.getExternalStorageDirectory(),"image");
 
+		//reads the image path from the directory
         if(file.isDirectory()){
             listFile = file.listFiles();
 
@@ -240,7 +244,6 @@ public class FragmentLevel extends Fragment{
     public static FragmentLevel getInstancelevel(String image) {
 
         FragmentLevel frag = new FragmentLevel();
-
         Bundle bundle = new Bundle();
         bundle.putString("photoNum", image);//we are putting a string(nameKey, string);
 
@@ -261,16 +264,25 @@ public class FragmentLevel extends Fragment{
 
 			//this indicates that the image was touched and the imagedefault is changed
 			imageswap = Integer.parseInt(tagname);
+		//Toast toast = Toast.makeText(getActivity().getApplicationContext(), String.valueOf(imageswap), Toast.LENGTH_LONG);
+		//toast.show();
 
+
+		//gets the imageDefault "white" image icon and depending on the location of the image the
+		//switch will run
 		switch (imagedefault) {
 			case 0:
 			{
-
+				//if the white image is in section 0 this runs
 				if (imageswap == (imagedefault + 1)) {
 
-					icon1.setImageResource(R.drawable.imagegray);
+					//swaps the image view
+					icon1.setImageResource(R.drawable.imagewhite);
 					icon0.setImageBitmap(bmp[mixedImages[imagedefault + 1]]);
 					tempPlace = mixedImages[imagedefault];
+
+
+					//swapts the integers from the arrays
 					mixedImages[imagedefault] = mixedImages[imageswap];
 					mixedImages[imageswap] = tempPlace;
 					imagedefault = imagedefault + 1;
@@ -279,26 +291,34 @@ public class FragmentLevel extends Fragment{
 
 				else if (imageswap == (imagedefault + 3)) {
 
-					icon3.setImageResource(R.drawable.imagegray);
+					//swaps the image view
+					icon3.setImageResource(R.drawable.imagewhite);
 					icon0.setImageBitmap(bmp[mixedImages[imagedefault + 3]]);
 					tempPlace = mixedImages[imagedefault];
 
+					//swapts the integers from the arrays
 					mixedImages[imagedefault] = mixedImages[imageswap];
 					mixedImages[imageswap] = tempPlace;
 					imagedefault = imagedefault + 3;
 
 				}
+				checksIfUserWon();
 
 				break;
 
 			}
+
+			//if the white image is in section 1 this runs
 			case 1:
 			{
 				if (imageswap == (imagedefault - 1)) {
 
-					icon0.setImageResource(R.drawable.imagegray);
+					//swaps the image view
+					icon0.setImageResource(R.drawable.imagewhite);
 					icon1.setImageBitmap(bmp[mixedImages[imagedefault - 1]]);
 					tempPlace = mixedImages[imagedefault];
+
+					//swapts the integers from the arrays
 					mixedImages[imagedefault] = mixedImages[imageswap];
 					mixedImages[imageswap] = tempPlace;
 					imagedefault = imagedefault - 1;
@@ -307,9 +327,12 @@ public class FragmentLevel extends Fragment{
 
 				else if (imageswap == (imagedefault + 1)) {
 
-					icon2.setImageResource(R.drawable.imagegray);
+					//swaps the image view
+					icon2.setImageResource(R.drawable.imagewhite);
 					icon1.setImageBitmap(bmp[mixedImages[imagedefault + 1]]);
 					tempPlace = mixedImages[imagedefault];
+
+					//swapts the integers from the arrays
 					mixedImages[imagedefault] = mixedImages[imageswap];
 					mixedImages[imageswap] = tempPlace;
 					imagedefault = imagedefault + 1;
@@ -318,28 +341,35 @@ public class FragmentLevel extends Fragment{
 
 				else if (imageswap == (imagedefault + 3)) {
 
-					icon4.setImageResource(R.drawable.imagegray);
+					//swaps the image view
+					icon4.setImageResource(R.drawable.imagewhite);
 					icon1.setImageBitmap(bmp[mixedImages[imagedefault + 3]]);
 					tempPlace = mixedImages[imagedefault];
 
+					//swapts the integers from the arrays
 					mixedImages[imagedefault] = mixedImages[imageswap];
 					mixedImages[imageswap] = tempPlace;
 					imagedefault = imagedefault + 3;
 
 				}
+				checksIfUserWon();
 
 				break;
 
 			}
 
 
+			//if the white image is in section 2 this runs
 			case 2:
 			{
 					if (imageswap == (imagedefault - 1)) {
 
-					icon1.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+					icon1.setImageResource(R.drawable.imagewhite);
 					icon2.setImageBitmap(bmp[mixedImages[imagedefault - 1]]);
 					tempPlace = mixedImages[imagedefault];
+
+						//swapts the integers from the arrays
 					mixedImages[imagedefault] = mixedImages[imageswap];
 					mixedImages[imageswap] = tempPlace;
 					imagedefault = imagedefault - 1;
@@ -348,30 +378,35 @@ public class FragmentLevel extends Fragment{
 
 					else if (imageswap == (imagedefault + 3)) {
 
-						icon5.setImageResource(R.drawable.imagegray);
+						icon5.setImageResource(R.drawable.imagewhite);
 						icon2.setImageBitmap(bmp[mixedImages[imagedefault + 3]]);
 						tempPlace = mixedImages[imagedefault];
 
+						//swapts the integers from the arrays
 						mixedImages[imagedefault] = mixedImages[imageswap];
 						mixedImages[imageswap] = tempPlace;
 						imagedefault = imagedefault + 3;
 
 					}
-
+					checksIfUserWon();
 
 
 				}
 				break;
 
+			//if the white image is in section 3 this runs
 			case 3:
 			{
 
 				if (imageswap != imagedefault) {
 					if (imageswap == (imagedefault + 1)) {
 
-						icon4.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon4.setImageResource(R.drawable.imagewhite);
 						icon3.setImageBitmap(bmp[mixedImages[imagedefault + 1]]);
 						tempPlace = mixedImages[imagedefault];
+
+						//swapts the integers from the arrays
 						mixedImages[imagedefault] = mixedImages[imageswap];
 						mixedImages[imageswap] = tempPlace;
 						imagedefault = imagedefault + 1;
@@ -380,10 +415,12 @@ public class FragmentLevel extends Fragment{
 
 					else if (imageswap == (imagedefault - 3)) {
 
-						icon0.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon0.setImageResource(R.drawable.imagewhite);
 						icon3.setImageBitmap(bmp[mixedImages[imagedefault - 3]]);
 						tempPlace = mixedImages[imagedefault];
 
+						//swapts the integers from the arrays
 						mixedImages[imagedefault] = mixedImages[imageswap];
 						mixedImages[imageswap] = tempPlace;
 						imagedefault = imagedefault - 3;
@@ -391,26 +428,32 @@ public class FragmentLevel extends Fragment{
 					}
 					else if (imageswap == (imagedefault + 3)) {
 
-						icon6.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon6.setImageResource(R.drawable.imagewhite);
 						icon3.setImageBitmap(bmp[mixedImages[imagedefault + 3]]);
 						tempPlace = mixedImages[imagedefault];
 
+						//swapts the integers from the arrays
 						mixedImages[imagedefault] = mixedImages[imageswap];
 						mixedImages[imageswap] = tempPlace;
 						imagedefault = imagedefault + 3;
 
 					}
+					checksIfUserWon();
 
 
 				}
 				break;
 			}
+
+			//if the white image is in section 4 this runs
 			case 4:
 			{
 				if (imageswap != imagedefault) {
 					if (imageswap == (imagedefault + 1)) {
 
-						icon5.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon5.setImageResource(R.drawable.imagewhite);
 						icon4.setImageBitmap(bmp[mixedImages[imagedefault + 1]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
@@ -421,7 +464,8 @@ public class FragmentLevel extends Fragment{
 
 					else if (imageswap == (imagedefault - 3)) {
 
-						icon1.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon1.setImageResource(R.drawable.imagewhite);
 						icon4.setImageBitmap(bmp[mixedImages[imagedefault - 3]]);
 						tempPlace = mixedImages[imagedefault];
 
@@ -432,7 +476,8 @@ public class FragmentLevel extends Fragment{
 					}
 					else if (imageswap == (imagedefault + 3)) {
 
-						icon7.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon7.setImageResource(R.drawable.imagewhite);
 						icon4.setImageBitmap(bmp[mixedImages[imagedefault + 3]]);
 						tempPlace = mixedImages[imagedefault];
 
@@ -443,7 +488,8 @@ public class FragmentLevel extends Fragment{
 					}
 					else if (imageswap == (imagedefault - 1)) {
 
-						icon3.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon3.setImageResource(R.drawable.imagewhite);
 						icon4.setImageBitmap(bmp[mixedImages[imagedefault - 1]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
@@ -451,19 +497,23 @@ public class FragmentLevel extends Fragment{
 						imagedefault = imagedefault - 1;
 
 					}
+					checksIfUserWon();
 
 				}
 				break;
 
 
 			}
+
+			//if the white image is in section 5 this runs
 			case 5: {
 				if (imageswap != imagedefault) {
 
 					if (imageswap == (imagedefault - 3)) {
 
-						icon5.setImageResource(R.drawable.imagegray);
-						icon2.setImageBitmap(bmp[mixedImages[imagedefault - 3]]);
+						//swaps the image view
+						icon2.setImageResource(R.drawable.imagewhite);
+						icon5.setImageBitmap(bmp[mixedImages[imagedefault - 3]]);
 						tempPlace = mixedImages[imagedefault];
 
 						mixedImages[imagedefault] = mixedImages[imageswap];
@@ -473,7 +523,8 @@ public class FragmentLevel extends Fragment{
 					}
 					else if (imageswap == (imagedefault + 3)) {
 
-						icon8.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon8.setImageResource(R.drawable.imagewhite);
 						icon5.setImageBitmap(bmp[mixedImages[imagedefault + 3]]);
 						tempPlace = mixedImages[imagedefault];
 
@@ -484,7 +535,8 @@ public class FragmentLevel extends Fragment{
 					}
 					else if (imageswap == (imagedefault - 1)) {
 
-						icon4.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon4.setImageResource(R.drawable.imagewhite);
 						icon5.setImageBitmap(bmp[mixedImages[imagedefault - 1]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
@@ -492,17 +544,20 @@ public class FragmentLevel extends Fragment{
 						imagedefault = imagedefault - 1;
 
 					}
+					checksIfUserWon();
 
 				}
 				break;
 			}
 
+			//if the white image is in section 6 this runs
 			case 6: {
 				if (imageswap != imagedefault) {
 
 					if (imageswap == (imagedefault - 3)) {
 
-						icon3.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon3.setImageResource(R.drawable.imagewhite);
 						icon6.setImageBitmap(bmp[mixedImages[imagedefault - 3]]);
 						tempPlace = mixedImages[imagedefault];
 
@@ -512,7 +567,8 @@ public class FragmentLevel extends Fragment{
 
 					} else if (imageswap == (imagedefault + 1)) {
 
-						icon7.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon7.setImageResource(R.drawable.imagewhite);
 						icon6.setImageBitmap(bmp[mixedImages[imagedefault + 1]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
@@ -522,32 +578,31 @@ public class FragmentLevel extends Fragment{
 					}
 
 
-
+					checksIfUserWon();
 				}
 				break;
 			}
 
+			//if the white image is in section 7 this runs
 			case 7:
 			{
 				if(imageswap != imagedefault){
 
 					if(imageswap == (imagedefault-3)){
 
-						icon4.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon4.setImageResource(R.drawable.imagewhite);
 						icon7.setImageBitmap(bmp[mixedImages[imagedefault-3]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
 						mixedImages[imageswap] = tempPlace;
 						imagedefault = imagedefault-3;
 
-
-
 					}
 					else if(imageswap == (imagedefault-1)){
 
-						Toast toast = Toast.makeText(getActivity().getApplicationContext(), String.valueOf(imageswap), Toast.LENGTH_LONG);
-						toast.show();
-						icon6.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon6.setImageResource(R.drawable.imagewhite);
 						icon7.setImageBitmap(bmp[mixedImages[imagedefault-1]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
@@ -558,29 +613,31 @@ public class FragmentLevel extends Fragment{
 
 					else if(imageswap == (imagedefault+1)){
 
-						Toast toast = Toast.makeText(getActivity().getApplicationContext(), String.valueOf(imageswap), Toast.LENGTH_LONG);
-						toast.show();
-						icon7.setImageResource(R.drawable.imagegray);
-						icon8.setImageBitmap(bmp[mixedImages[imagedefault+1]]);
+						//swaps the image view
+						icon8.setImageResource(R.drawable.imagewhite);
+						icon7.setImageBitmap(bmp[mixedImages[imagedefault+1]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
 						mixedImages[imageswap] = tempPlace;
 						imagedefault = imagedefault+1;
 
 					}
-
+					checksIfUserWon();
 
 				}
 
 				break;
 			}
+
+			//if the white image is in section 8 this runs
 			case 8:
 			{
 				if(imageswap != imagedefault){
 
 					if(imageswap == (imagedefault-3)){
 
-						icon5.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon5.setImageResource(R.drawable.imagewhite);
 						icon8.setImageBitmap(bmp[mixedImages[imagedefault-3]]);
 						tempPlace = mixedImages[imagedefault];
 
@@ -591,7 +648,8 @@ public class FragmentLevel extends Fragment{
 					}
 					else if(imageswap == (imagedefault-1)){
 
-						icon7.setImageResource(R.drawable.imagegray);
+						//swaps the image view
+						icon7.setImageResource(R.drawable.imagewhite);
 						icon8.setImageBitmap(bmp[mixedImages[imagedefault-1]]);
 						tempPlace = mixedImages[imagedefault];
 						mixedImages[imagedefault] = mixedImages[imageswap];
@@ -599,7 +657,7 @@ public class FragmentLevel extends Fragment{
 						imagedefault = imagedefault-1;
 
 					}
-
+					checksIfUserWon();
 				}
 
 				break;
@@ -616,31 +674,31 @@ public class FragmentLevel extends Fragment{
 	}
 
 
-    public void checksIfWon()
+    public void checksIfUserWon()
 	{
 		//checks if the user won
 		for(int x = 0;x < 9;x++)
 		{
 			//increments the count victory if both numbers are the same
 			if(mixedImages[x] == answerKey[x])
-				countVictory++;
+				checksArrayForWin++;
 			else
 				break;
 		}
-		//if count victory is nine then user wins
-		if(countVictory == 9)
-			victoryActivity();
-			//if no more tries left then the user lost
-		else if(numberOfTries == 0)
-			losingActivity();
+
+		if(checksArrayForWin == 9)
+		{
+			//if the array is the same the wonMesssage meethod is displayed
+			wonMessage();
+		}
+		checksArrayForWin = 0;//resets back to zero if they didn't win
+
 	}
     	//pops up the layout of the victory screen
-	private void victoryActivity()
+	private void wonMessage()
 	{
-	}
-	//pops up the layout of the losing screen
-	private void losingActivity()
-	{
+		Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Yay!!! YOU WON", Toast.LENGTH_LONG);
+		toast.show();
 	}
 
 }

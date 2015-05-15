@@ -28,6 +28,8 @@ import android.widget.ImageView;
 
 public class MainActivity extends ActionBarActivity  {
 
+
+
     private ImageButton mGalleryButton;//creates a variable for the gallery button
     private ImageButton mCameraButton;// creates a variable for the camera button
 
@@ -39,7 +41,6 @@ public class MainActivity extends ActionBarActivity  {
         //linkes the class with its layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         mCameraButton = (ImageButton) findViewById(R.id.cameraButton);//type casts the button as an image button and connects it to the camera button in the xml

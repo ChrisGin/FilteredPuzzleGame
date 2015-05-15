@@ -13,7 +13,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 
+
+
 /**
+ * Developers:Yarely Chino, Noemi Cuin, Christian Martinez
+ *
+ *
+ *
  * Created by yaya on 4/24/15.
  * Name of Class: MainActivity
  * Description: This class inherits from ActionBarActivity. This class displays two buttons one

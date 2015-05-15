@@ -5,7 +5,7 @@
     android:id="@+id/relativelayout1"
     android:layout_height="match_parent">
 
-
+    <!-- Scroll for the images in the gallery -->
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,13 +17,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/relativelayout2">
 
+            <!-- Fragment for the image display -->
             <FrameLayout
                 android:name="galleryFragmentName"
                 android:id="@+id/gallery_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 </FrameLayout>
-
+            <!-- Fragment for the picture display -->
             <FrameLayout
                 android:layout_below="@id/gallery_container"
                 android:name="galleryFragmentName"
@@ -32,6 +33,7 @@
                 android:layout_height="wrap_content">
             </FrameLayout>
 
+            <!-- Fragment for the game display -->
             <FrameLayout
                 android:layout_below="@id/gallery_container"
                 android:name="galleryFragmentName"

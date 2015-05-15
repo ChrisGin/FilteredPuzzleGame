@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
+ *  * Developers:Yarely Chino, Noemi Cuin, Christian Martinez
+ *
  * Created by yaya on 4/19/15.
  * Name of Class: GalleryActivity
  * Description: This class inherits from Fragment. This class displays constructs the gallery

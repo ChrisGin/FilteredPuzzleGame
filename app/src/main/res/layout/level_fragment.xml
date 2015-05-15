@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#FFFF22"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,6 +12,8 @@
         android:text="Game"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal" />
+
+    <!-- ImageView for the image the user is playing-->
     <ImageView
 
         android:layout_width="90dp"
@@ -35,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:tag ="0"
                 android:src ="@drawable/image1" />
     	<!--  Image button 2 -->
@@ -44,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image1"
                 android:tag ="1" />
@@ -54,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image1"
                 android:tag ="2" />
@@ -70,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image1"
                 android:tag ="3" />
@@ -80,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image1"
                 android:tag ="4" />
@@ -90,7 +92,7 @@
                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image1"
                 android:tag ="5" />
@@ -106,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image1"
                 android:tag ="6" />
@@ -116,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0.5dp"
+                android:padding="0.3dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image1"
                 android:tag ="7"/>
@@ -126,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-               android:padding="0.5dp"
+               android:padding="0.3dp"
                 android:scaleType="fitXY"
                android:src="@drawable/imagewhite"
                 android:tag ="8" />

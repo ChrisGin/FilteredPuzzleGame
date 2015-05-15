@@ -28,6 +28,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
+ *  Developers:Yarely Chino, Noemi Cuin, Christian Martinez
+ *
  * Created by yaya on 4/24/15.
  * Name of Class: FragmentFilters
  * Description: This class sets the image with filters and saves it to a directory
